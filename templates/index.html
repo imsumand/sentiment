@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Sentiment Analyser</title>
+</head>
+<body style="background:url(https://warrantyplus.in/wp-content/uploads/2018/10/background-water-drops.png);" >
+<h1 style="color:white;Font-size:90px;border-style: solid;Font-family:Comic Sans MS"><center>Sentiment Analyzer</center></h1>
+    {% if sentiment %}
+        {% if sentiment == -1 %}
+            <H2 style="color:#ff4c4c;Font-size:60px;Font-family:Comic Sans MS">Getting bad vibes...</H2>
+<h3 style="color:#ffc6c4;Font-size:45px;Font-family:Comic Sans MS"><center>The sentiment looks Negative,try some better movie.</center></h3>
+        {% endif %}
+        {% if sentiment == 1 %}
+            <H2 style="color:#ADD8E6;Font-size:60px;Font-family:Comic Sans MS">Getting good vibes...</H2>
+<h3 style="color:#00FF00;Font-size:45px;Font-family:Comic Sans MS"><center>The sentiment looks Positive,you liked the movie didn't you?</center></h3>
+        {% endif %}
+    {% endif %}
+    <form action="/predict" method="POST">
+        <label style="color:#00FFFF;Font-size:25px;Font-family:Comic Sans MS">Enter your opinion about a movie in short</label><br>
+        <br>
+        <textarea name="review"></textarea><br><br>
+        <input type="submit" name="review" value="Predict">
+    </form>
+</body>
+</html>
